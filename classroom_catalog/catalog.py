@@ -3,7 +3,7 @@ from .models import Classroom
 from .errors import DublicateIDError, InvalidItemError, ItemNotFoundError
 class Catalog:
     def __init__(self):
-        self._items = {} #
+        self._items: dict[str, Classroom] = {} 
 
     def add(self, item: Classroom)->None:
         if not isinstance(item, Classroom):
@@ -54,4 +54,4 @@ class Catalog:
         
 
     def __contains__(self, item_id:str)->bool:
-        return item_id in self._items
+        return isinstance(item_id, str) and item_id in self._items
