@@ -55,3 +55,6 @@ class Catalog:
 
     def __contains__(self, item_id:str)->bool:
         return isinstance(item_id, str) and item_id in self._items
+
+    def _replace_from(self, other: "Catalog") -> None:
+        self._items = other._items.copy()
